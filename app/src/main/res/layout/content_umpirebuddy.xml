@@ -12,8 +12,61 @@
     tools:context="eawww.umpire_buddy.Umpirebuddy"
     tools:showIn="@layout/activity_umpirebuddy">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ball_button_text"
+        android:id="@+id/ball_button"
+        android:layout_alignTop="@+id/strike_button"
+        android:layout_alignStart="@+id/textView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/strike_button_text"
+        android:id="@+id/strike_button"
+        android:layout_below="@+id/strike_text"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="52dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/strike_text_text"
+        android:id="@+id/strike_text"
+        android:layout_marginTop="63dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/strike_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/strike_number"
+        android:layout_alignTop="@+id/strike_text"
+        android:layout_alignEnd="@+id/strike_button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/ball_text_text"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/strike_number"
+        android:layout_toEndOf="@+id/strike_number"
+        android:layout_marginStart="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/ball_number"
+        android:layout_above="@+id/strike_button"
+        android:layout_toStartOf="@+id/strike_text"
+        android:layout_alignEnd="@+id/ball_button" />
+
 </RelativeLayout>

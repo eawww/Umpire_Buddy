@@ -8,8 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class Umpirebuddy extends AppCompatActivity {
+
+    private Button mBallButton;     //button to increment ball count
+    private Button mStrikeButton;   //button to increment strike count
+    private TextView mNumBalls;     //displays and keeps track of ball count
+    private TextView mNumStrikes;   //displays and keeps track of strike count
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +26,47 @@ public class Umpirebuddy extends AppCompatActivity {
         setContentView(R.layout.activity_umpirebuddy);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //create references to textviews
+        mNumBalls = (TextView)findViewById(R.id.ball_number);
+        mNumStrikes = (TextView)findViewById(R.id.strike_number);
+
+        //create reference to ball_button
+        mBallButton = (Button)findViewById(R.id.ball_button);
+        mBallButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //logic for ball button
+                if(Integer.parseInt((String)mNumBalls.getText()) < 3)
+                    mNumBalls.setText(Integer.toString(Integer.parseInt((String)mNumBalls
+                            .getText()) + 1));
+                else {
+                    Toast.makeText(Umpirebuddy.this,
+                            R.string.walk_toast,
+                            Toast.LENGTH_SHORT).show();
+                    mNumBalls.setText("0");
+                    mNumStrikes.setText("0");
+                }
+            }
+        });
+        //create reference to strike_button
+        mStrikeButton = (Button)findViewById(R.id.strike_button);
+        mStrikeButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //logic for strike button
+                if(Integer.parseInt((String)mNumStrikes.getText()) < 2)
+                    mNumStrikes.setText(Integer.toString(Integer.parseInt((String)mNumStrikes.
+                            getText()) + 1));
+                else {
+                    Toast.makeText(Umpirebuddy.this,
+                            R.string.out_toast,
+                            Toast.LENGTH_SHORT).show();
+                    mNumStrikes.setText("0");
+                    mNumBalls.setText("0");
+                }
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
