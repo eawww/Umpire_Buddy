@@ -7,4 +7,7 @@
     <string name="ball_text_text">Balls: </string>
     <string name="out_toast">Out!</string>
     <string name="walk_toast">Walk!</string>
+    <string name="reset">Reset</string>
+    <string name="about">About</string>
+    <string name="about_activity_text">Umpire Buddy 2.0 by Eric Wilson</string>
 </resources>
